@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
   end
 
   def create
-    user = User.create(name: params[:name])
+    user = User.create!(name: params[:name])
     render json: user
   rescue ActiveRecord::RecordInvalid, ArgumentError
     invalid_msg([params[:name]])
@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
 
   def update
     user = User.find(params[:id])
-    user.update(name: params[:name])
+    user.update!(name: params[:name])
     render json: user
   rescue ActiveRecord::RecordInvalid
     invalid_msg([params[:name]])

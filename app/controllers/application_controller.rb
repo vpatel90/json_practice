@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def invalid_msg(input = nil)
 
-    if input.nil?
+    if input.empty?
       response = "You didn't send me the right params"
     else
       response = "You might've sent me an empty string"
